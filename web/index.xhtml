@@ -5,14 +5,14 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Facelet Title</title>
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <h:outputStylesheet library="css"  name="styles.css"/>
     </h:head>
     <h:body>
         <h1 class="arial">Registration</h1>  
         <h:form>
-            <h:panelGrid columns="3" columnClasses="rightA;lign, leftAlign, leftAlign err">
+            <h:panelGrid class="table table-stripped" columns="3" columnClasses="rightA;lign, leftAlign, leftAlign err">
                 <h:outputLabel value="Salutation" for="ddlSalutation"/>
                 <h:selectOneMenu id ="ddlSalutation" label="Salutation" value ="#{registrationBean.salutation}">
                     <f:selectItem itemLabel="" itemValue =""/>
@@ -23,10 +23,23 @@
                     <f:selectItem itemLabel="Foo." itemValue ="FOO"/>
                 </h:selectOneMenu>
                 <h:message for="ddlSalutation" errorClass="err"/>
-                <h:outputLabel/>
-                <h:inputText/>
-                <h:message/>
+                <h:outputLabel value ="First Name:" for="txtFirstName"/>
+                <h:inputText id="txtFirstName" label="First Name" value ="#{registrationBean.firstName}" required="true"/>
+                <h:message for ="txtFirstName"  errorClass="err" />
+                
+                  <h:outputLabel value ="Last Name:" for="txtLastName"/>
+                <h:inputText id="txtLastName" label="Last Name" value ="#{registrationBean.lastName}" required="true"/>
+                <h:message for ="txtLastName"  errorClass="err" />
+                
+                 <h:outputLabel value ="Email:" for="txtEmail"/>
+                  <h:inputText id="txtEmail" label="Email" value ="#{registrationBean.email}" required="true"/>
+                <h:message for ="txtEmail"  errorClass="err" />
+                
+                  <h:outputLabel value ="Age:" for="txtAge"/>
+                  <h:inputText id="txtAge" label="Age" value ="#{registrationBean.age}" required="true"/>
+                <h:message for ="txtAge"  errorClass="err" />  
             </h:panelGrid>
+              <h:commandButton id = "btnRegister" value ="Register" action="confirmation"/>
         </h:form>
     </h:body>
 </html>
