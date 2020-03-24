@@ -32,11 +32,15 @@
                 <h:message for ="txtLastName"  errorClass="err" />
                 
                  <h:outputLabel value ="Email:" for="txtEmail"/>
-                  <h:inputText id="txtEmail" label="Email" value ="#{registrationBean.email}" required="true"/>
+                 <h:inputText id="txtEmail" label="Email Address" value ="#{registrationBean.email}" required="true">
+                     <f:validator validatorId="emailValidator"/>
+                 </h:inputText>
                 <h:message for ="txtEmail"  errorClass="err" />
                 
                   <h:outputLabel value ="Age:" for="txtAge"/>
-                  <h:inputText id="txtAge" label="Age" value ="#{registrationBean.age}" required="true"/>
+                  <h:inputText id="txtAge" label="Age" value ="#{registrationBean.age}" required="true">
+                      <f:validator validatorId="ageValidator"/>
+                  </h:inputText>
                 <h:message for ="txtAge"  errorClass="err" />  
             </h:panelGrid>
               <h:commandButton id = "btnRegister" value ="Register" action="confirmation"/>
